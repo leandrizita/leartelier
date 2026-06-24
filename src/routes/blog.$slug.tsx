@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -29,22 +29,11 @@ const DEFAULT_DRAFT: PostDraft = {
   image: "",
 };
 
-function validateSlug(value: string): string {
-  return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9-]/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-}
-
 function BlogPost() {
   const { slug } = Route.useParams();
-  const navigate = useNavigate();
   const storageKey = `blog-draft:${slug}`;
   const [draft, setDraft] = useState<PostDraft>(DEFAULT_DRAFT);
   const [loaded, setLoaded] = useState(false);
-  const [slugDraft, setSlugDraft] = useState(slug);
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -59,26 +48,8 @@ function BlogPost() {
     if (loaded) localStorage.setItem(storageKey, JSON.stringify(draft));
   }, [draft, loaded, storageKey]);
 
-  useEffect(() => {
-    setSlugDraft(slug);
-  }, [slug]);
-
   const update = (k: keyof PostDraft) => (e: React.FormEvent<HTMLElement>) =>
     setDraft((d) => ({ ...d, [k]: e.currentTarget.textContent ?? "" }));
-
-  const applySlugChange = () => {
-    const newSlug = validateSlug(slugDraft);
-    if (newSlug && newSlug !== slug) {
-      const oldData = localStorage.getItem(`blog-draft:${slug}`);
-      if (oldData) {
-        localStorage.setItem(`blog-draft:${newSlug}`, oldData);
-        localStorage.removeItem(`blog-draft:${slug}`);
-      }
-      navigate({ to: "/blog/$slug", params: { slug: newSlug } });
-    } else {
-      setSlugDraft(slug);
-    }
-  };
 
   const onImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -97,26 +68,7 @@ function BlogPost() {
           ← Voltar ao blog
         </Link>
 
-        <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="eyebrow">Slug:</span>
-          <span
-            className="rounded-sm bg-muted px-2 py-1 outline-none focus:bg-muted/80 focus:text-foreground"
-            contentEditable
-            suppressContentEditableWarning
-            onInput={(e) => setSlugDraft(e.currentTarget.textContent ?? "")}
-            onBlur={applySlugChange}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                (e.currentTarget as HTMLElement).blur();
-              }
-            }}
-          >
-            {slug}
-          </span>
-        </div>
-
-        <div className="mt-6 flex items-center gap-3 text-xs text-muted-foreground">
+        <div className="mt-8 flex items-center gap-3 text-xs text-muted-foreground">
           <span
             className="eyebrow outline-none focus:text-foreground"
             contentEditable
