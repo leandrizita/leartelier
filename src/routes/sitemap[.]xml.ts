@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type { RouteServerOptions } from "@tanstack/start-client-core";
-type _EnsureServerRouteAugmentation = RouteServerOptions<never, never, never, never, never, never, never, never, never, never, never>;
+/// <reference path="../../node_modules/@tanstack/start-client-core/dist/esm/serverRoute.d.ts" />
 
 const BASE_URL = "";
 
