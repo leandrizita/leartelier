@@ -28,9 +28,9 @@ type Post = {
 const posts: Post[] = [
   {
     slug: "em-breve-1",
-    title: "Título do primeiro post",
+    title: "Sketches - Mundial FIFA 2026",
     excerpt:
-      "Um espaço reservado para a primeira reflexão — sobre o gesto inicial da aquarela, a escolha do papel e a luz que orienta o traço.",
+      "Um espaço reservado para a primeira reflexão — sobre o gesto inicial da aquarela, a escolha do papel e a luz que orienta o traço.\nA jornada da seleção porteña a partir dos meus traços e registros urbanos. ",
     category: "AQUARELA",
     date: "Em breve",
     readingTime: "5 min",
