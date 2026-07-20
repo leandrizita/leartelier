@@ -133,9 +133,21 @@ function Blog() {
           <article className="group grid grid-cols-1 gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-muted">
-                <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
-                  Imagem de capa
-                </div>
+                {featured.cover ? (
+                  <img
+                    src={featured.cover}
+                    alt={featured.title}
+                    className="h-full w-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                    width={800}
+                    height={600}
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
+                    Imagem de capa
+                  </div>
+                )}
               </div>
             </div>
             <div className="md:col-span-5 flex flex-col justify-end">
