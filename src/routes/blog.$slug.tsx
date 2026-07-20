@@ -38,6 +38,8 @@ function BlogPost() {
   const [draft, setDraft] = useState<PostDraft>(DEFAULT_DRAFT);
   const [loaded, setLoaded] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const extraRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
+
 
   useEffect(() => {
     try {
