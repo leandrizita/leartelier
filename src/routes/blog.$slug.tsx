@@ -19,6 +19,7 @@ type PostDraft = {
   date: string;
   body: string;
   image: string;
+  extraImages: string[];
 };
 
 const DEFAULT_DRAFT: PostDraft = {
@@ -27,7 +28,9 @@ const DEFAULT_DRAFT: PostDraft = {
   date: "Hoje",
   body: "Comece a escrever aqui. Este é um espaço editável — clique em qualquer texto para alterá-lo e use o botão abaixo para trocar a imagem de capa.",
   image: "",
+  extraImages: ["", "", ""],
 };
+
 
 function BlogPost() {
   const { slug } = Route.useParams();
@@ -35,6 +38,8 @@ function BlogPost() {
   const [draft, setDraft] = useState<PostDraft>(DEFAULT_DRAFT);
   const [loaded, setLoaded] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const extraRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
+
 
   useEffect(() => {
     try {
@@ -58,6 +63,20 @@ function BlogPost() {
     reader.onload = () => setDraft((d) => ({ ...d, image: String(reader.result) }));
     reader.readAsDataURL(file);
   };
+
+  const onExtraImage = (idx: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () =>
+      setDraft((d) => {
+        const extras = [...(d.extraImages ?? ["", "", ""])];
+        extras[idx] = String(reader.result);
+        return { ...d, extraImages: extras };
+      });
+    reader.readAsDataURL(file);
+  };
+
 
   return (
     <div className="min-h-screen">
@@ -136,6 +155,45 @@ function BlogPost() {
         >
           {draft.body}
         </div>
+
+        <section className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[0, 1, 2].map((idx) => {
+            const src = draft.extraImages?.[idx] ?? "";
+            return (
+              <div key={idx} className="flex flex-col gap-2">
+                <div
+                  className="aspect-[4/5] w-full overflow-hidden rounded-md bg-muted cursor-pointer"
+                  onClick={() => extraRefs[idx].current?.click()}
+                  role="button"
+                  tabIndex={0}
+                >
+                  {src ? (
+                    <img src={src} alt={`Imagem ${idx + 1} do post`} className="h-full w-full object-cover" />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
+                      Slot {idx + 1} — clique para adicionar
+                    </div>
+                  )}
+                </div>
+                <input
+                  ref={extraRefs[idx]}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={onExtraImage(idx)}
+                />
+                <button
+                  type="button"
+                  onClick={() => extraRefs[idx].current?.click()}
+                  className="eyebrow text-left text-muted-foreground hover:text-foreground"
+                >
+                  {src ? "Trocar imagem" : "Adicionar imagem"}
+                </button>
+              </div>
+            );
+          })}
+        </section>
+
 
         <p className="mt-10 text-xs text-muted-foreground">
           As alterações são salvas automaticamente neste navegador.
