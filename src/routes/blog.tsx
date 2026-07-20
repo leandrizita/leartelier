@@ -35,6 +35,7 @@ const posts: Post[] = [
     category: "AQUARELA",
     date: "Em breve",
     readingTime: "5 min",
+    cover: capaMundial2026.url,
   },
   {
     slug: "em-breve-2",
