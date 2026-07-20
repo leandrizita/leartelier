@@ -64,6 +64,20 @@ function BlogPost() {
     reader.readAsDataURL(file);
   };
 
+  const onExtraImage = (idx: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () =>
+      setDraft((d) => {
+        const extras = [...(d.extraImages ?? ["", "", ""])];
+        extras[idx] = String(reader.result);
+        return { ...d, extraImages: extras };
+      });
+    reader.readAsDataURL(file);
+  };
+
+
   return (
     <div className="min-h-screen">
       <SiteHeader />
