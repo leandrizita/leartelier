@@ -156,6 +156,45 @@ function BlogPost() {
           {draft.body}
         </div>
 
+        <section className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[0, 1, 2].map((idx) => {
+            const src = draft.extraImages?.[idx] ?? "";
+            return (
+              <div key={idx} className="flex flex-col gap-2">
+                <div
+                  className="aspect-[4/5] w-full overflow-hidden rounded-md bg-muted cursor-pointer"
+                  onClick={() => extraRefs[idx].current?.click()}
+                  role="button"
+                  tabIndex={0}
+                >
+                  {src ? (
+                    <img src={src} alt={`Imagem ${idx + 1} do post`} className="h-full w-full object-cover" />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
+                      Slot {idx + 1} — clique para adicionar
+                    </div>
+                  )}
+                </div>
+                <input
+                  ref={extraRefs[idx]}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={onExtraImage(idx)}
+                />
+                <button
+                  type="button"
+                  onClick={() => extraRefs[idx].current?.click()}
+                  className="eyebrow text-left text-muted-foreground hover:text-foreground"
+                >
+                  {src ? "Trocar imagem" : "Adicionar imagem"}
+                </button>
+              </div>
+            );
+          })}
+        </section>
+
+
         <p className="mt-10 text-xs text-muted-foreground">
           As alterações são salvas automaticamente neste navegador.
         </p>
