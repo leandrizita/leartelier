@@ -19,6 +19,7 @@ type PostDraft = {
   date: string;
   body: string;
   image: string;
+  extraImages: string[];
 };
 
 const DEFAULT_DRAFT: PostDraft = {
@@ -27,7 +28,9 @@ const DEFAULT_DRAFT: PostDraft = {
   date: "Hoje",
   body: "Comece a escrever aqui. Este é um espaço editável — clique em qualquer texto para alterá-lo e use o botão abaixo para trocar a imagem de capa.",
   image: "",
+  extraImages: ["", "", ""],
 };
+
 
 function BlogPost() {
   const { slug } = Route.useParams();
