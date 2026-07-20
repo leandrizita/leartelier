@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import capaMundial2026 from "@/assets/blog/capa-mundial-2026.png.asset.json";
 
 
 export const Route = createFileRoute("/blog")({
