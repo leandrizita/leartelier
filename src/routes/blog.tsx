@@ -40,7 +40,7 @@ const posts: Post[] = [
   },
   {
     slug: "em-breve-2",
-    title: "Título do segundo post",
+    title: "O Rio de Janeiro e suas paisagens urbanas",
     excerpt:
       "Aqui caberão notas sobre urban sketching: cadernos, ferramentas e a prática de desenhar a cidade em movimento.",
     category: "URBAN SKETCH",
