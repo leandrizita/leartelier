@@ -57,6 +57,7 @@ const posts: Post[] = [
     category: "ENCADERNAÇÃO",
     date: "Em breve",
     readingTime: "6 min",
+    cover: capaCadernoPassaros.url,
   },
   {
     slug: "em-breve-4",
