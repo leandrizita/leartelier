@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import capaMundial2026 from "@/assets/blog/capa-mundial-2026.png.asset.json";
+import capaPaoDeAcucar from "@/assets/blog/pao-de-acucar-rio.png.asset.json";
 
 
 export const Route = createFileRoute("/blog")({
@@ -45,6 +46,7 @@ const posts: Post[] = [
     category: "URBAN SKETCH",
     date: "Em breve",
     readingTime: "4 min",
+    cover: capaPaoDeAcucar.url,
   },
   {
     slug: "em-breve-3",
@@ -172,9 +174,18 @@ function Blog() {
             {rest.map((post) => (
               <article key={post.slug} className="group flex flex-col">
                 <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-muted">
-                  <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
-                    Imagem
-                  </div>
+                  {post.cover ? (
+                    <img
+                      src={post.cover}
+                      alt={post.title}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
+                      Imagem
+                    </div>
+                  )}
                 </div>
                 <div className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
                   <span className="eyebrow">{post.category}</span>
