@@ -62,7 +62,7 @@ const posts: Post[] = [
   },
   {
     slug: "em-breve-4",
-    title: "Título do quarto post",
+    title: "Quadras e Super Quadras",
     excerpt:
       "Reservado para ensaios em filme 35mm: silêncios, becos e a paciência do analógico.",
     category: "FOTOGRAFIA",
