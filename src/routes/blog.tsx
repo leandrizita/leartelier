@@ -223,7 +223,7 @@ function Blog() {
           <form className="md:col-span-6 flex flex-col gap-3 self-end sm:flex-row">
             <input
               type="email"
-              placeholder="artleagee@email.com"
+              placeholder="artleagee@gmail.com"
               className="flex-1 border-b border-border bg-transparent px-1 py-3 text-base outline-none focus:border-foreground"
             />
             <button
