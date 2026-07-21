@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import capaMundial2026 from "@/assets/blog/capa-mundial-2026.png.asset.json";
 import capaPaoDeAcucar from "@/assets/blog/pao-de-acucar-rio.png.asset.json";
 import capaCadernoPassaros from "@/assets/blog/caderno-passaros.png.asset.json";
+import capaLanternas from "@/assets/blog/lanternas-japonesas.png.asset.json";
 
 
 export const Route = createFileRoute("/blog")({
@@ -67,6 +68,7 @@ const posts: Post[] = [
     category: "FOTOGRAFIA",
     date: "Em breve",
     readingTime: "3 min",
+    cover: capaLanternas.url,
   },
 ];
 
