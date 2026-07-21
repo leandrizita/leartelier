@@ -68,6 +68,7 @@ const posts: Post[] = [
     category: "FOTOGRAFIA",
     date: "Em breve",
     readingTime: "3 min",
+    cover: capaLanternas.url,
   },
 ];
 
