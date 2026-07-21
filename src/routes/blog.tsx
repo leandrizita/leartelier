@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import capaMundial2026 from "@/assets/blog/capa-mundial-2026.png.asset.json";
@@ -70,14 +70,6 @@ const categories = ["Todos", "AQUARELA", "URBAN SKETCH", "ENCADERNAÇÃO", "FOTO
 
 function Blog() {
   const [featured, ...rest] = posts;
-  const navigate = useNavigate();
-
-  const handleNewPost = () => {
-    const slug = `post-${Date.now().toString(36)}`;
-    navigate({ to: "/blog/$slug", params: { slug } });
-  };
-
-
 
   return (
     <div className="min-h-screen">
@@ -95,13 +87,6 @@ function Blog() {
               Histórias por trás das obras, processos criativos, observações de
               viagem e notas de um atelier em constante movimento.
             </p>
-            <button
-              type="button"
-              onClick={handleNewPost}
-              className="eyebrow mt-6 inline-flex w-fit rounded-full bg-foreground px-5 py-2 text-background hover:opacity-90"
-            >
-              + Novo post
-            </button>
           </div>
         </div>
       </section>
