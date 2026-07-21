@@ -51,7 +51,7 @@ const posts: Post[] = [
   },
   {
     slug: "em-breve-3",
-    title: "Título do terceiro post",
+    title: "A arte de criar um caderno de desenho para outro artista",
     excerpt:
       "Espaço para o processo de encadernação artesanal — costura, capa em couro e a anatomia de um caderno feito à mão.",
     category: "ENCADERNAÇÃO",
