@@ -74,18 +74,16 @@ function BlogPost() {
 
 
   useEffect(() => {
+    const base = initialDraft(slug);
     try {
       const raw = localStorage.getItem(storageKey);
-      if (raw) {
-        setDraft({ ...DEFAULT_DRAFT, ...JSON.parse(raw) });
-      } else {
-        setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
-      }
+      setDraft(raw ? { ...base, ...JSON.parse(raw) } : base);
     } catch {
-      setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
+      setDraft(base);
     }
     setLoaded(true);
   }, [storageKey, slug]);
+
 
   useEffect(() => {
     if (loaded) localStorage.setItem(storageKey, JSON.stringify(draft));
