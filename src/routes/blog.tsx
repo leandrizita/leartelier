@@ -5,6 +5,7 @@ import capaMundial2026 from "@/assets/blog/capa-mundial-2026.png.asset.json";
 import capaPaoDeAcucar from "@/assets/blog/pao-de-acucar-rio.png.asset.json";
 import capaCadernoPassaros from "@/assets/blog/caderno-passaros.png.asset.json";
 import capaLanternas from "@/assets/blog/lanternas-japonesas.png.asset.json";
+import capaViajarObservarDesenhar from "@/assets/blog/viajar-observar-desenhar.png.asset.json";
 
 
 export const Route = createFileRoute("/blog")({
@@ -78,6 +79,7 @@ const posts: Post[] = [
     category: "URBAN SKETCHER",
     date: "Em breve",
     readingTime: "5 min",
+    cover: capaViajarObservarDesenhar.url,
   },
 ];
 
