@@ -55,10 +55,16 @@ function BlogPost() {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(storageKey);
-      if (raw) setDraft({ ...DEFAULT_DRAFT, ...JSON.parse(raw) });
-    } catch {}
+      if (raw) {
+        setDraft({ ...DEFAULT_DRAFT, ...JSON.parse(raw) });
+      } else {
+        setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
+      }
+    } catch {
+      setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
+    }
     setLoaded(true);
-  }, [storageKey]);
+  }, [storageKey, slug]);
 
   useEffect(() => {
     if (loaded) localStorage.setItem(storageKey, JSON.stringify(draft));
