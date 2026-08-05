@@ -2,14 +2,32 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { getPost } from "@/lib/posts";
 
 export const Route = createFileRoute("/blog/$slug")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `Post — ${params.slug} — Atelier` },
-      { name: "description", content: "Post do blog do Atelier — espaço editável de escrita com imagem." },
-    ],
-  }),
+  head: ({ params }) => {
+    const post = getPost(params.slug);
+    const title = post ? `${post.title} — Blog — Atelier` : `Post — Atelier`;
+    const description = post
+      ? post.excerpt.trim().slice(0, 155)
+      : "Post do blog do Atelier — espaço editável de escrita com imagem.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(post?.cover?.startsWith("https://")
+          ? [
+              { property: "og:image", content: post.cover },
+              { name: "twitter:image", content: post.cover },
+            ]
+          : []),
+      ],
+    };
+  },
   component: BlogPost,
 });
 
@@ -31,16 +49,19 @@ const DEFAULT_DRAFT: PostDraft = {
   extraImages: ["", "", ""],
 };
 
-const INITIAL_DRAFTS: Record<string, PostDraft> = {
-  "viajar-observar-desenhar": {
-    title: "Viajar, observar e desenhar",
-    category: "URBAN SKETCHER",
-    date: "Em breve",
-    body: "Depois que entrei para a comunidade Urban Sketcher em 2018, enfim, eu encontrei o meu perfil de viajante.\n\nO que eu gosto, ao viajar, é de imergir no cotidiano da cidade a qual viajo. É ser uma observadora do tempo das pessoas que ali vivem e sobrevivem. É descobrir os lados bons e ruins. Ouvir os barulhos da cidade. Sentir como o tempo passa naquele espaço.\n\nE claro, registrar um pouco disso com meus desenhos.\n\nÉ um roteiro sem roteiro.\nSem pressa.\nApenas material de arte na mochila e disposição para estar presente no local.\n\nAo fazer isso, as minhas lembranças não tem nada a ver com os roteiros turísticos ou instagramáveis da maioria das pessoas.\n\nE nessas imersões, eu acabo percebendo as mudanças arquitetônicas nos lugares da qual visito com uma certa frequência e da qual tenha registrado anteriormente.",
-    image: "",
+function initialDraft(slug: string): PostDraft {
+  const post = getPost(slug);
+  if (!post) return DEFAULT_DRAFT;
+  return {
+    title: post.title,
+    category: post.category,
+    date: post.date,
+    body: post.body,
+    image: post.cover ?? "",
     extraImages: ["", "", ""],
-  },
-};
+  };
+}
+
 
 
 function BlogPost() {
@@ -53,18 +74,16 @@ function BlogPost() {
 
 
   useEffect(() => {
+    const base = initialDraft(slug);
     try {
       const raw = localStorage.getItem(storageKey);
-      if (raw) {
-        setDraft({ ...DEFAULT_DRAFT, ...JSON.parse(raw) });
-      } else {
-        setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
-      }
+      setDraft(raw ? { ...base, ...JSON.parse(raw) } : base);
     } catch {
-      setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
+      setDraft(base);
     }
     setLoaded(true);
   }, [storageKey, slug]);
+
 
   useEffect(() => {
     if (loaded) localStorage.setItem(storageKey, JSON.stringify(draft));
