@@ -70,6 +70,15 @@ const posts: Post[] = [
     readingTime: "3 min",
     cover: capaLanternas.url,
   },
+  {
+    slug: "viajar-observar-desenhar",
+    title: "Viajar, observar e desenhar",
+    excerpt:
+      "O perfil de viajante do artista é imergir na cidade. Ser observador do tempo e espaço sem pressa ou roteiro pré-estabelecido. Tudo encanta. Tudo é arte.",
+    category: "URBAN SKETCHER",
+    date: "Em breve",
+    readingTime: "5 min",
+  },
 ];
 
 const categories = ["Todos", "AQUARELA", "URBAN SKETCH", "ENCADERNAÇÃO", "FOTOGRAFIA"];
