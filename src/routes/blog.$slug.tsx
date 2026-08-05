@@ -31,6 +31,17 @@ const DEFAULT_DRAFT: PostDraft = {
   extraImages: ["", "", ""],
 };
 
+const INITIAL_DRAFTS: Record<string, PostDraft> = {
+  "viajar-observar-desenhar": {
+    title: "Viajar, observar e desenhar",
+    category: "URBAN SKETCHER",
+    date: "Em breve",
+    body: "Viajar não é apenas mudar de lugar. É abrir os olhos para o que a cidade tem a dizer. Sem roteiro, sem pressa.\n\nO urban sketcher encontra na esquina, na sombra de uma árvore, na fachada descascada, o convite para parar e desenhar. Cada viagem é um caderno novo. Cada caderno é um acúmulo de tempo, de luz, de encontros.\n\nDesenhar na rua exige coragem: a coragem de olhar, de errar, de registrar o efêmero. O trem passa, a nuvem muda, a pessoa sentada no banco levanta. E o traço fica.\n\nTudo encanta. Tudo é arte. O banco vazio, o letreiro antigo, o reflexo na poça d'água. A cidade não precisa ser perfeita; ela precisa ser verdadeira. E é essa verdade que o caderno guarda.\n\nEste espaço é dedicado aos registros de quem viaja para ver. Para quem acredita que desenhar é uma forma de estar presente no mundo.",
+    image: "",
+    extraImages: ["", "", ""],
+  },
+};
+
 
 function BlogPost() {
   const { slug } = Route.useParams();
@@ -44,10 +55,16 @@ function BlogPost() {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(storageKey);
-      if (raw) setDraft({ ...DEFAULT_DRAFT, ...JSON.parse(raw) });
-    } catch {}
+      if (raw) {
+        setDraft({ ...DEFAULT_DRAFT, ...JSON.parse(raw) });
+      } else {
+        setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
+      }
+    } catch {
+      setDraft(INITIAL_DRAFTS[slug] ?? DEFAULT_DRAFT);
+    }
     setLoaded(true);
-  }, [storageKey]);
+  }, [storageKey, slug]);
 
   useEffect(() => {
     if (loaded) localStorage.setItem(storageKey, JSON.stringify(draft));
