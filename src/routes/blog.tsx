@@ -1,12 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import capaMundial2026 from "@/assets/blog/capa-mundial-2026.png.asset.json";
-import capaPaoDeAcucar from "@/assets/blog/pao-de-acucar-rio.png.asset.json";
-import capaCadernoPassaros from "@/assets/blog/caderno-passaros.png.asset.json";
-import capaLanternas from "@/assets/blog/lanternas-japonesas.png.asset.json";
-import capaViajarObservarDesenhar from "@/assets/blog/viajar-observar-desenhar.png.asset.json";
-
+import { posts } from "@/lib/posts";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -20,68 +15,6 @@ export const Route = createFileRoute("/blog")({
   component: Blog,
 });
 
-type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readingTime: string;
-  cover?: string;
-};
-
-const posts: Post[] = [
-  {
-    slug: "em-breve-1",
-    title: "Sketches - Mundial FIFA 2026",
-    excerpt:
-      "Um espaço reservado para a primeira reflexão — sobre o gesto inicial da aquarela, a escolha do papel e a luz que orienta o traço.\nA jornada da seleção porteña a partir dos meus traços e registros urbanos. ",
-    category: "AQUARELA",
-    date: "Em breve",
-    readingTime: "5 min",
-    cover: capaMundial2026.url,
-  },
-  {
-    slug: "em-breve-2",
-    title: "O Rio de Janeiro e suas paisagens urbanas",
-    excerpt:
-      "Aqui caberão notas sobre urban sketching: cadernos, ferramentas e a prática de desenhar a cidade em movimento.",
-    category: "URBAN SKETCH",
-    date: "Em breve",
-    readingTime: "4 min",
-    cover: capaPaoDeAcucar.url,
-  },
-  {
-    slug: "em-breve-3",
-    title: "A arte de criar um caderno de desenho para outro artista",
-    excerpt:
-      "Espaço para o processo de encadernação artesanal — costura, capa em couro e a anatomia de um caderno feito à mão.",
-    category: "ENCADERNAÇÃO",
-    date: "Em breve",
-    readingTime: "6 min",
-    cover: capaCadernoPassaros.url,
-  },
-  {
-    slug: "em-breve-4",
-    title: "Quadras e Super Quadras",
-    excerpt:
-      "Reservado para ensaios em filme 35mm: silêncios, becos e a paciência do analógico.",
-    category: "FOTOGRAFIA",
-    date: "Em breve",
-    readingTime: "3 min",
-    cover: capaLanternas.url,
-  },
-  {
-    slug: "viajar-observar-desenhar",
-    title: "Viajar, observar e desenhar",
-    excerpt:
-      "O perfil de viajante do artista é imergir na cidade. Ser observador do tempo e espaço sem pressa ou roteiro pré-estabelecido. Tudo encanta. Tudo é arte.",
-    category: "URBAN SKETCHER",
-    date: "Em breve",
-    readingTime: "5 min",
-    cover: capaViajarObservarDesenhar.url,
-  },
-];
 
 const categories = ["Todos", "AQUARELA", "URBAN SKETCH", "ENCADERNAÇÃO", "FOTOGRAFIA"];
 
