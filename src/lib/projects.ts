@@ -136,7 +136,7 @@ const aquarelautoWorks: Work[] = [
 
 const urbanSketcherWorks: Work[] = [
   {
-    title: "Teatro Nacional Cláudio Santoro, Brasília",
+    title: "Teatro Nacional Cláudio Santoro - Brasília",
     technique: "Aquarela e nanquim sobre papel",
     dimensions: "15 × 21 cm",
     year: "2025",
@@ -144,7 +144,7 @@ const urbanSketcherWorks: Work[] = [
     imageAlt: "Aquarela do Teatro Nacional Cláudio Santoro segurada em frente ao Eixo Monumental de Brasília.",
   },
   {
-    title: "Frevo à beira dos telhados",
+    title: "Frevo à beira dos telhados - Pirinópolis",
     technique: "Aquarela sobre papel",
     dimensions: "15 × 21 cm",
     year: "2023",
@@ -160,7 +160,7 @@ const urbanSketcherWorks: Work[] = [
     imageAlt: "Caderno com aquarela de casas e prédios avermelhados em Curitiba, segurado diante da cena real.",
   },
   {
-    title: "Casarão amarelo, esquina do centro",
+    title: "Casarão amarelo, esquina do centro, Curitiba",
     technique: "Aquarela e nanquim sobre papel",
     dimensions: "21 × 30 cm",
     year: "2024",
@@ -200,7 +200,7 @@ const urbanSketcherWorks: Work[] = [
     imageAlt: "Aquarela em dupla página com multidão diante da Igreja do Senhor do Bonfim, em Salvador.",
   },
   {
-    title: "Skate no Conic, Brasília",
+    title: "Skate no Setor Bancário Sul, Brasília",
     technique: "Aquarela e nanquim sobre papel",
     dimensions: "15 × 21 cm",
     year: "2025",
