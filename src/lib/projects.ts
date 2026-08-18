@@ -17,6 +17,7 @@ import us19 from "@/assets/urban-sketcher/us-19.png.asset.json";
 import us20 from "@/assets/urban-sketcher/us-20.png.asset.json";
 import us21 from "@/assets/urban-sketcher/us-21.png.asset.json";
 import us22 from "@/assets/urban-sketcher/us-22.png.asset.json";
+import us23 from "@/assets/urban-sketcher/us-23.png.asset.json";
 
 export type Work = {
   title: string;
@@ -207,7 +208,14 @@ const urbanSketcherWorks: Work[] = [
     image: us22.url,
     imageAlt: "Caderno com aquarela de jovens andando de skate diante de edifício modernista em Brasília.",
   },
-  ...placeholderWorks(1, "2024"),
+  {
+    title: "Caderno de campo, fachada rosa",
+    technique: "Aquarela sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us23.url,
+    imageAlt: "Caderno de aquarela sobre calçada de pedras portuguesas, ao lado de estojo de tintas, com desenho de fachada rosa e carros.",
+  },
 ];
 
 export const projects: Project[] = [
