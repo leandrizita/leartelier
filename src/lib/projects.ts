@@ -134,6 +134,82 @@ const aquarelautoWorks: Work[] = [
   },
 ];
 
+const urbanSketcherWorks: Work[] = [
+  {
+    title: "Teatro Nacional Cláudio Santoro, Brasília",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "15 × 21 cm",
+    year: "2025",
+    image: us14.url,
+    imageAlt: "Aquarela do Teatro Nacional Cláudio Santoro segurada em frente ao Eixo Monumental de Brasília.",
+  },
+  {
+    title: "Frevo à beira dos telhados",
+    technique: "Aquarela sobre papel",
+    dimensions: "15 × 21 cm",
+    year: "2023",
+    image: us15.url,
+    imageAlt: "Aquarela de dançarina de frevo com sombrinha sobre telhados coloridos e coqueiros.",
+  },
+  {
+    title: "Sobrados e prédios, Curitiba",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us16.url,
+    imageAlt: "Caderno com aquarela de casas e prédios avermelhados em Curitiba, segurado diante da cena real.",
+  },
+  {
+    title: "Casarão amarelo, esquina do centro",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us17.url,
+    imageAlt: "Aquarela de casarão histórico amarelo em esquina movimentada, com o prédio real ao fundo.",
+  },
+  {
+    title: "Praça do Relógio, Taguatinga/DF",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us18.url,
+    imageAlt: "Caderno aberto com aquarela da torre do relógio de Taguatinga diante da praça real.",
+  },
+  {
+    title: "Elevador Lacerda, Salvador",
+    technique: "Aquarela sobre papel de algodão",
+    dimensions: "15 × 21 cm",
+    year: "2023",
+    image: us19.url,
+    imageAlt: "Aquarela da Baía de Todos-os-Santos e do Elevador Lacerda com o mar real ao fundo.",
+  },
+  {
+    title: "Setor Hospitalar Sul, Brasília",
+    technique: "Aquarela e nanquim sobre papel kraft",
+    dimensions: "21 × 30 cm",
+    year: "2025",
+    image: us20.url,
+    imageAlt: "Aquarela sobre papel kraft de edifícios do Setor Hospitalar Sul de Brasília.",
+  },
+  {
+    title: "Senhor do Bonfim, Bahia",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm (dupla)",
+    year: "2023",
+    image: us21.url,
+    imageAlt: "Aquarela em dupla página com multidão diante da Igreja do Senhor do Bonfim, em Salvador.",
+  },
+  {
+    title: "Skate no Conic, Brasília",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "15 × 21 cm",
+    year: "2025",
+    image: us22.url,
+    imageAlt: "Caderno com aquarela de jovens andando de skate diante de edifício modernista em Brasília.",
+  },
+  ...placeholderWorks(1, "2024"),
+];
+
 export const projects: Project[] = [
   {
     slug: "aquarelauto",
