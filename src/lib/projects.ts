@@ -9,7 +9,7 @@ import img08 from "@/assets/aquarelauto/Image_20260514_0031.jpg.asset.json";
 import img09 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
 import img10 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
 import us14 from "@/assets/urban-sketcher/us-14.png.asset.json";
-import us15 from "@/assets/urban-sketcher/us-15.png.asset.json";
+import us15 from "@/assets/urban-sketcher/us-15-praca-civica-goiania.jpg.asset.json";
 import us16 from "@/assets/urban-sketcher/us-16.png.asset.json";
 import us17 from "@/assets/urban-sketcher/us-17.png.asset.json";
 import us18 from "@/assets/urban-sketcher/us-18.png.asset.json";
@@ -145,12 +145,12 @@ const urbanSketcherWorks: Work[] = [
     imageAlt: "Aquarela do Teatro Nacional Cláudio Santoro segurada em frente ao Eixo Monumental de Brasília.",
   },
   {
-    title: "Frevo à beira dos telhados - Pirinópolis",
-    technique: "Aquarela sobre papel",
-    dimensions: "15 × 21 cm",
-    year: "2023",
+    title: "Praça Cívica, Goiânia\u00a0",
+    technique: "Grafite sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2018",
     image: us15.url,
-    imageAlt: "Aquarela de dançarina de frevo com sombrinha sobre telhados coloridos e coqueiros.",
+    imageAlt: "Caderno com esboço a grafite da Praça Cívica de Goiânia segurado diante da praça real, com o Palácio Pedro Ludovico ao fundo.",
   },
   {
     title: "Sobrados e prédios, Curitiba",
