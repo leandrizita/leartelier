@@ -145,12 +145,12 @@ const urbanSketcherWorks: Work[] = [
     imageAlt: "Aquarela do Teatro Nacional Cláudio Santoro segurada em frente ao Eixo Monumental de Brasília.",
   },
   {
-    title: "Frevo à beira dos telhados - Pirinópolis",
-    technique: "Aquarela sobre papel",
-    dimensions: "15 × 21 cm",
-    year: "2023",
+    title: "Praça Cívica, Goiânia\u00a0",
+    technique: "Grafite sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2018",
     image: us15.url,
-    imageAlt: "Aquarela de dançarina de frevo com sombrinha sobre telhados coloridos e coqueiros.",
+    imageAlt: "Caderno com esboço a grafite da Praça Cívica de Goiânia segurado diante da praça real, com o Palácio Pedro Ludovico ao fundo.",
   },
   {
     title: "Sobrados e prédios, Curitiba",
