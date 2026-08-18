@@ -17,7 +17,7 @@ import us19 from "@/assets/urban-sketcher/us-19.png.asset.json";
 import us20 from "@/assets/urban-sketcher/us-20.png.asset.json";
 import us21 from "@/assets/urban-sketcher/us-21.png.asset.json";
 import us22 from "@/assets/urban-sketcher/us-22.png.asset.json";
-import us23 from "@/assets/urban-sketcher/us-23.png.asset.json";
+import us23 from "@/assets/urban-sketcher/us-23-camara-curitiba.jpg.asset.json";
 
 export type Work = {
   title: string;
