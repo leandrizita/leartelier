@@ -9,7 +9,7 @@ import img08 from "@/assets/aquarelauto/Image_20260514_0031.jpg.asset.json";
 import img09 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
 import img10 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
 import us14 from "@/assets/urban-sketcher/us-14.png.asset.json";
-import us15 from "@/assets/urban-sketcher/us-15.png.asset.json";
+import us15 from "@/assets/urban-sketcher/us-15-praca-civica-goiania.jpg.asset.json";
 import us16 from "@/assets/urban-sketcher/us-16.png.asset.json";
 import us17 from "@/assets/urban-sketcher/us-17.png.asset.json";
 import us18 from "@/assets/urban-sketcher/us-18.png.asset.json";
