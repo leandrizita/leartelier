@@ -209,7 +209,7 @@ const urbanSketcherWorks: Work[] = [
     imageAlt: "Caderno com aquarela de jovens andando de skate diante de edifício modernista em Brasília.",
   },
   {
-    title: "Caderno de campo, fachada rosa",
+    title: "Câmara Municipal de Curitiba\u00a0",
     technique: "Aquarela sobre papel",
     dimensions: "21 × 30 cm",
     year: "2024",
