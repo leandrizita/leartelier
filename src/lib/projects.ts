@@ -235,7 +235,7 @@ export const projects: Project[] = [
       "Projeto contínuo de desenho urbano realizado em campo, com caneta nanquim e aquarela. Reúne arquitetura, pessoas e atmosferas de cidades brasileiras e estrangeiras, organizado por cadernos e encontros do Urban Sketchers.",
     status: "Contínuo",
     year: "2023—",
-    works: placeholderWorks(10, "2024"),
+    works: urbanSketcherWorks,
   },
   {
     slug: "ad-astra",
