@@ -8,6 +8,15 @@ import img07 from "@/assets/aquarelauto/Image_20260514_0030.jpg.asset.json";
 import img08 from "@/assets/aquarelauto/Image_20260514_0031.jpg.asset.json";
 import img09 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
 import img10 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
+import us14 from "@/assets/urban-sketcher/us-14.png.asset.json";
+import us15 from "@/assets/urban-sketcher/us-15.png.asset.json";
+import us16 from "@/assets/urban-sketcher/us-16.png.asset.json";
+import us17 from "@/assets/urban-sketcher/us-17.png.asset.json";
+import us18 from "@/assets/urban-sketcher/us-18.png.asset.json";
+import us19 from "@/assets/urban-sketcher/us-19.png.asset.json";
+import us20 from "@/assets/urban-sketcher/us-20.png.asset.json";
+import us21 from "@/assets/urban-sketcher/us-21.png.asset.json";
+import us22 from "@/assets/urban-sketcher/us-22.png.asset.json";
 
 export type Work = {
   title: string;
@@ -125,6 +134,82 @@ const aquarelautoWorks: Work[] = [
   },
 ];
 
+const urbanSketcherWorks: Work[] = [
+  {
+    title: "Teatro Nacional Cláudio Santoro, Brasília",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "15 × 21 cm",
+    year: "2025",
+    image: us14.url,
+    imageAlt: "Aquarela do Teatro Nacional Cláudio Santoro segurada em frente ao Eixo Monumental de Brasília.",
+  },
+  {
+    title: "Frevo à beira dos telhados",
+    technique: "Aquarela sobre papel",
+    dimensions: "15 × 21 cm",
+    year: "2023",
+    image: us15.url,
+    imageAlt: "Aquarela de dançarina de frevo com sombrinha sobre telhados coloridos e coqueiros.",
+  },
+  {
+    title: "Sobrados e prédios, Curitiba",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us16.url,
+    imageAlt: "Caderno com aquarela de casas e prédios avermelhados em Curitiba, segurado diante da cena real.",
+  },
+  {
+    title: "Casarão amarelo, esquina do centro",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us17.url,
+    imageAlt: "Aquarela de casarão histórico amarelo em esquina movimentada, com o prédio real ao fundo.",
+  },
+  {
+    title: "Praça do Relógio, Taguatinga/DF",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm",
+    year: "2024",
+    image: us18.url,
+    imageAlt: "Caderno aberto com aquarela da torre do relógio de Taguatinga diante da praça real.",
+  },
+  {
+    title: "Elevador Lacerda, Salvador",
+    technique: "Aquarela sobre papel de algodão",
+    dimensions: "15 × 21 cm",
+    year: "2023",
+    image: us19.url,
+    imageAlt: "Aquarela da Baía de Todos-os-Santos e do Elevador Lacerda com o mar real ao fundo.",
+  },
+  {
+    title: "Setor Hospitalar Sul, Brasília",
+    technique: "Aquarela e nanquim sobre papel kraft",
+    dimensions: "21 × 30 cm",
+    year: "2025",
+    image: us20.url,
+    imageAlt: "Aquarela sobre papel kraft de edifícios do Setor Hospitalar Sul de Brasília.",
+  },
+  {
+    title: "Senhor do Bonfim, Bahia",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "21 × 30 cm (dupla)",
+    year: "2023",
+    image: us21.url,
+    imageAlt: "Aquarela em dupla página com multidão diante da Igreja do Senhor do Bonfim, em Salvador.",
+  },
+  {
+    title: "Skate no Conic, Brasília",
+    technique: "Aquarela e nanquim sobre papel",
+    dimensions: "15 × 21 cm",
+    year: "2025",
+    image: us22.url,
+    imageAlt: "Caderno com aquarela de jovens andando de skate diante de edifício modernista em Brasília.",
+  },
+  ...placeholderWorks(1, "2024"),
+];
+
 export const projects: Project[] = [
   {
     slug: "aquarelauto",
@@ -150,7 +235,7 @@ export const projects: Project[] = [
       "Projeto contínuo de desenho urbano realizado em campo, com caneta nanquim e aquarela. Reúne arquitetura, pessoas e atmosferas de cidades brasileiras e estrangeiras, organizado por cadernos e encontros do Urban Sketchers.",
     status: "Contínuo",
     year: "2023—",
-    works: placeholderWorks(10, "2024"),
+    works: urbanSketcherWorks,
   },
   {
     slug: "ad-astra",
