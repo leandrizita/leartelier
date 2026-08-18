@@ -8,6 +8,15 @@ import img07 from "@/assets/aquarelauto/Image_20260514_0030.jpg.asset.json";
 import img08 from "@/assets/aquarelauto/Image_20260514_0031.jpg.asset.json";
 import img09 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
 import img10 from "@/assets/aquarelauto/Image_20260522_0003.jpg.asset.json";
+import us14 from "@/assets/urban-sketcher/us-14.png.asset.json";
+import us15 from "@/assets/urban-sketcher/us-15.png.asset.json";
+import us16 from "@/assets/urban-sketcher/us-16.png.asset.json";
+import us17 from "@/assets/urban-sketcher/us-17.png.asset.json";
+import us18 from "@/assets/urban-sketcher/us-18.png.asset.json";
+import us19 from "@/assets/urban-sketcher/us-19.png.asset.json";
+import us20 from "@/assets/urban-sketcher/us-20.png.asset.json";
+import us21 from "@/assets/urban-sketcher/us-21.png.asset.json";
+import us22 from "@/assets/urban-sketcher/us-22.png.asset.json";
 
 export type Work = {
   title: string;
