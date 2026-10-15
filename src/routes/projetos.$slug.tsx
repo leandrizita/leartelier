@@ -35,7 +35,7 @@ export const Route = createFileRoute("/projetos/$slug")({
   ),
   errorComponent: ({ error }) => (
     <div className="mx-auto max-w-[1400px] px-6 py-32 md:px-10">
-      <p>{error.message}</p>
+      <p>{error instanceof Error ? error.message : "Algo deu errado."}</p>
     </div>
   ),
 });
