@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import hero from "@/assets/hero-sketch.jpg";
+import heroAsset from "@/assets/hero-museu-brasilia.png.asset.json";
 import w1 from "@/assets/work-1.jpg";
 import w2 from "@/assets/work-2.jpg";
 import w3 from "@/assets/work-3.jpg";
@@ -59,14 +59,15 @@ function Index() {
 
           <div className="relative border-t border-border lg:border-l lg:border-t-0">
             <img
-              src={hero}
-              alt="Aquarela de uma rua europeia com café"
-              width={1280}
-              height={1600}
+              src={heroAsset.url}
+              alt="Ilustração de uma multidão de costas, com bandeiras vermelhas e laranjas, diante da cúpula iluminada do Museu Nacional da República, em Brasília, ao entardecer."
+              width={1085}
+              height={1450}
+              fetchPriority="high"
               className="h-full w-full object-cover"
             />
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">Lisboa, abril</p>
+              <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">Brasília, entardecer</p>
               <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">aquarela · ink</p>
             </div>
           </div>
