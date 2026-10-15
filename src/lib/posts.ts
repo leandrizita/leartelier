@@ -3,6 +3,7 @@ import capaPaoDeAcucar from "@/assets/blog/pao-de-acucar-rio.png.asset.json";
 import capaCadernoPassaros from "@/assets/blog/caderno-passaros.png.asset.json";
 import capaLanternas from "@/assets/blog/lanternas-japonesas.png.asset.json";
 import capaViajarObservarDesenhar from "@/assets/blog/viajar-observar-desenhar.png.asset.json";
+import capaEleicoes2026 from "@/assets/blog/eleicoes-2026.png.asset.json";
 
 export type Post = {
   slug: string;
@@ -70,6 +71,17 @@ export const posts: Post[] = [
     readingTime: "5 min",
     cover: capaViajarObservarDesenhar.url,
     body: "Depois que entrei para a comunidade Urban Sketcher em 2018, enfim, eu encontrei o meu perfil de viajante.\n\nO que eu gosto, ao viajar, é de imergir no cotidiano da cidade a qual viajo. É ser uma observadora do tempo das pessoas que ali vivem e sobrevivem. É descobrir os lados bons e ruins. Ouvir os barulhos da cidade. Sentir como o tempo passa naquele espaço.\n\nE claro, registrar um pouco disso com meus desenhos.\n\nÉ um roteiro sem roteiro.\nSem pressa.\nApenas material de arte na mochila e disposição para estar presente no local.\n\nAo fazer isso, as minhas lembranças não tem nada a ver com os roteiros turísticos ou instagramáveis da maioria das pessoas.\n\nE nessas imersões, eu acabo percebendo as mudanças arquitetônicas nos lugares da qual visito com uma certa frequência e da qual tenha registrado anteriormente.",
+  },
+  {
+    slug: "eleicoes-2026",
+    title: "Eleições 2026",
+    excerpt:
+      "Bandeiras, terraços e o céu de um país em debate: aquarela como registro de uma campanha vista da rua, não da TV.",
+    category: "AQUARELA",
+    date: "15 out 2026",
+    readingTime: "5 min",
+    cover: capaEleicoes2026.url,
+    body: "Pintar uma eleição é pintar gente segurando pano colorido num céu que não pede licença.\n\nEscolhi um terraço. De lá, a cidade fica em duas linhas: montanha atrás, água na frente, e no meio um poste que serve de eixo para tudo. É em volta dele que as pessoas se reúnem, cada uma com sua bandeira, cada uma achando que está defendendo o mesmo lugar de um jeito diferente.\n\nAquarela é um material honesto para isso. Ela escorre, invade o espaço do vizinho, mistura o vermelho com o verde sem pedir permissão. Ninguém sai de uma campanha limpo — e no papel também não sai.\n\nComecei pelo fundo, aquele azul-acinzentado de fim de tarde, e deixei secar. Depois vieram as figuras, sem contorno, só mancha: a jaqueta vermelha, a camiseta rosa, o braço estendido no alto do poste. As bandeiras foram por último, porque bandeira é o que chega primeiro no olhar de quem passa.\n\nOs confetes no ar não existiam. Foram um acidente de tinta que espalhou em gotas, e eu deixei. Às vezes um acaso vira a melhor metáfora da campanha inteira.",
   },
 ];
 
