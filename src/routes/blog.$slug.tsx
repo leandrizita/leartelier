@@ -179,7 +179,7 @@ function BlogPost() {
             onClick={() => fileRef.current?.click()}
             className="eyebrow mt-3 text-muted-foreground hover:text-foreground"
           >
-            {draft.image ? "Trocar imagem" : "Adicionar imagem"}
+            {draft.image ? "" : "Adicionar imagem"}
           </button>
         </div>
 
@@ -223,7 +223,7 @@ function BlogPost() {
                   onClick={() => extraRefs[idx].current?.click()}
                   className="eyebrow text-left text-muted-foreground hover:text-foreground"
                 >
-                  {src ? "Trocar imagem" : "Adicionar imagem"}
+                  {src ? ["A VOZ DOS JOVENS - 13OUT26", "ATO 11OUT26 - DOMINGO ELA VAI! ", "USK - COLÉGIO ELEITORAL 804 "][idx] : "Adicionar imagem"}
                 </button>
               </div>
             );
