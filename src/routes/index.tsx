@@ -67,8 +67,8 @@ function Index() {
               className="h-full w-full object-cover"
             />
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">Brasília, entardecer</p>
-              <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">aquarela · ink</p>
+              <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">BRASÍLIA, ENTARDECER - ATO 13OUT26</p>
+              <p className="eyebrow bg-paper/90 px-3 py-2 text-ink">GOACHE · INK</p>
             </div>
           </div>
         </div>
