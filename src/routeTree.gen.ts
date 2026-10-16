@@ -12,12 +12,15 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as LojonhaRouteImport } from './routes/lojonha'
 import { Route as ProjetosRouteImport } from './routes/projetos'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as TrabalhosRouteImport } from './routes/trabalhos'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as LojonhaIndexRouteImport } from './routes/lojonha.index'
+import { Route as LojonhaHandleRouteImport } from './routes/lojonha.$handle'
 import { Route as ProjetosIndexRouteImport } from './routes/projetos.index'
 import { Route as ProjetosSlugRouteImport } from './routes/projetos.$slug'
 
@@ -34,6 +37,11 @@ const BlogRoute = BlogRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojonhaRoute = LojonhaRouteImport.update({
+  id: '/lojonha',
+  path: '/lojonha',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjetosRoute = ProjetosRouteImport.update({
@@ -66,6 +74,16 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const LojonhaIndexRoute = LojonhaIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LojonhaRoute,
+} as any)
+const LojonhaHandleRoute = LojonhaHandleRouteImport.update({
+  id: '/$handle',
+  path: '/$handle',
+  getParentRoute: () => LojonhaRoute,
+} as any)
 const ProjetosIndexRoute = ProjetosIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -81,13 +99,16 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
+  '/lojonha': typeof LojonhaRouteWithChildren
   '/projetos': typeof ProjetosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/lojonha/$handle': typeof LojonhaHandleRoute
   '/projetos/$slug': typeof ProjetosSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/lojonha/': typeof LojonhaIndexRoute
   '/projetos/': typeof ProjetosIndexRoute
 }
 export interface FileRoutesByTo {
@@ -97,8 +118,10 @@ export interface FileRoutesByTo {
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/lojonha/$handle': typeof LojonhaHandleRoute
   '/projetos/$slug': typeof ProjetosSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/lojonha': typeof LojonhaIndexRoute
   '/projetos': typeof ProjetosIndexRoute
 }
 export interface FileRoutesById {
@@ -106,13 +129,16 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
+  '/lojonha': typeof LojonhaRouteWithChildren
   '/projetos': typeof ProjetosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/lojonha/$handle': typeof LojonhaHandleRoute
   '/projetos/$slug': typeof ProjetosSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/lojonha/': typeof LojonhaIndexRoute
   '/projetos/': typeof ProjetosIndexRoute
 }
 export interface FileRouteTypes {
@@ -121,13 +147,16 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/contato'
+    | '/lojonha'
     | '/projetos'
     | '/sitemap.xml'
     | '/sobre'
     | '/trabalhos'
     | '/blog/$slug'
+    | '/lojonha/$handle'
     | '/projetos/$slug'
     | '/blog/'
+    | '/lojonha/'
     | '/projetos/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -137,21 +166,26 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/trabalhos'
     | '/blog/$slug'
+    | '/lojonha/$handle'
     | '/projetos/$slug'
     | '/blog'
+    | '/lojonha'
     | '/projetos'
   id:
     | '__root__'
     | '/'
     | '/blog'
     | '/contato'
+    | '/lojonha'
     | '/projetos'
     | '/sitemap.xml'
     | '/sobre'
     | '/trabalhos'
     | '/blog/$slug'
+    | '/lojonha/$handle'
     | '/projetos/$slug'
     | '/blog/'
+    | '/lojonha/'
     | '/projetos/'
   fileRoutesById: FileRoutesById
 }
@@ -159,6 +193,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
+  LojonhaRoute: typeof LojonhaRouteWithChildren
   ProjetosRoute: typeof ProjetosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
@@ -186,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojonha': {
+      id: '/lojonha'
+      path: '/lojonha'
+      fullPath: '/lojonha'
+      preLoaderRoute: typeof LojonhaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projetos': {
@@ -230,6 +272,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/lojonha/': {
+      id: '/lojonha/'
+      path: '/'
+      fullPath: '/lojonha/'
+      preLoaderRoute: typeof LojonhaIndexRouteImport
+      parentRoute: typeof LojonhaRoute
+    }
+    '/lojonha/$handle': {
+      id: '/lojonha/$handle'
+      path: '/$handle'
+      fullPath: '/lojonha/$handle'
+      preLoaderRoute: typeof LojonhaHandleRouteImport
+      parentRoute: typeof LojonhaRoute
+    }
     '/projetos/': {
       id: '/projetos/'
       path: '/'
@@ -259,6 +315,19 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface LojonhaRouteChildren {
+  LojonhaHandleRoute: typeof LojonhaHandleRoute
+  LojonhaIndexRoute: typeof LojonhaIndexRoute
+}
+
+const LojonhaRouteChildren: LojonhaRouteChildren = {
+  LojonhaHandleRoute: LojonhaHandleRoute,
+  LojonhaIndexRoute: LojonhaIndexRoute,
+}
+
+const LojonhaRouteWithChildren =
+  LojonhaRoute._addFileChildren(LojonhaRouteChildren)
+
 interface ProjetosRouteChildren {
   ProjetosSlugRoute: typeof ProjetosSlugRoute
   ProjetosIndexRoute: typeof ProjetosIndexRoute
@@ -277,6 +346,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
+  LojonhaRoute: LojonhaRouteWithChildren,
   ProjetosRoute: ProjetosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
