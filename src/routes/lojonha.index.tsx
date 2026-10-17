@@ -32,7 +32,7 @@ function Lojonha() {
         <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-end gap-6 px-6 py-16 md:px-10 md:py-24">
           <div className="min-w-0">
             <p className="eyebrow text-muted-foreground">Feito à mão · Brasília</p>
-            <h1 className="text-display mt-4 text-[clamp(3rem,9vw,8rem)]">Lojonha.</h1>
+            <h1 className="text-display mt-4 text-[clamp(3rem,9vw,8rem)]">Lojinha.</h1>
             <p className="mt-6 max-w-xl text-ink-soft md:text-lg">
               Cadernos costurados à mão, prints de aquarela e pequenas peças de papelaria artesanal — direto do ateliê para a sua mesa.
             </p>
