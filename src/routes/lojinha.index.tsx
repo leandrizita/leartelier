@@ -6,23 +6,23 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/shopify";
 
-export const Route = createFileRoute("/lojonha/")({
+export const Route = createFileRoute("/lojinha/")({
   head: () => ({
     meta: [
-      { title: "Lojonha — Cadernos, Prints & Papelaria Artesanal | Atelier" },
+      { title: "Lojinha — Cadernos, Prints & Papelaria Artesanal | Atelier" },
       { name: "description", content: "Cadernos costurados à mão, prints de aquarela e papelaria artesanal feitos no ateliê." },
-      { property: "og:title", content: "Lojonha — Cadernos, Prints & Papelaria Artesanal" },
+      { property: "og:title", content: "Lojinha — Cadernos, Prints & Papelaria Artesanal" },
       { property: "og:description", content: "Cadernos costurados à mão, prints de aquarela e papelaria artesanal feitos no ateliê." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://leartelier.lovable.app/lojonha" },
+      { property: "og:url", content: "https://leartelier.lovable.app/lojinha" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://leartelier.lovable.app/lojonha" }],
+    links: [{ rel: "canonical", href: "https://leartelier.lovable.app/lojinha" }],
   }),
-  component: Lojonha,
+  component: Lojinha,
 });
 
-function Lojonha() {
+function Lojinha() {
   const { data: products, isLoading, error } = useQuery({ queryKey: ["shopify-products"], queryFn: () => fetchProducts(50) });
 
   return (

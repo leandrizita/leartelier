@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as LojinhaRouteImport } from './routes/lojinha'
 import { Route as LojonhaRouteImport } from './routes/lojonha'
 import { Route as ProjetosRouteImport } from './routes/projetos'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -19,8 +20,8 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as TrabalhosRouteImport } from './routes/trabalhos'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as LojonhaIndexRouteImport } from './routes/lojonha.index'
-import { Route as LojonhaHandleRouteImport } from './routes/lojonha.$handle'
+import { Route as LojinhaIndexRouteImport } from './routes/lojinha.index'
+import { Route as LojinhaHandleRouteImport } from './routes/lojinha.$handle'
 import { Route as ProjetosIndexRouteImport } from './routes/projetos.index'
 import { Route as ProjetosSlugRouteImport } from './routes/projetos.$slug'
 
@@ -37,6 +38,11 @@ const BlogRoute = BlogRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojinhaRoute = LojinhaRouteImport.update({
+  id: '/lojinha',
+  path: '/lojinha',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LojonhaRoute = LojonhaRouteImport.update({
@@ -74,15 +80,15 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
-const LojonhaIndexRoute = LojonhaIndexRouteImport.update({
+const LojinhaIndexRoute = LojinhaIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => LojonhaRoute,
+  getParentRoute: () => LojinhaRoute,
 } as any)
-const LojonhaHandleRoute = LojonhaHandleRouteImport.update({
+const LojinhaHandleRoute = LojinhaHandleRouteImport.update({
   id: '/$handle',
   path: '/$handle',
-  getParentRoute: () => LojonhaRoute,
+  getParentRoute: () => LojinhaRoute,
 } as any)
 const ProjetosIndexRoute = ProjetosIndexRouteImport.update({
   id: '/',
@@ -99,29 +105,31 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
-  '/lojonha': typeof LojonhaRouteWithChildren
+  '/lojinha': typeof LojinhaRouteWithChildren
+  '/lojonha': typeof LojonhaRoute
   '/projetos': typeof ProjetosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/lojonha/$handle': typeof LojonhaHandleRoute
+  '/lojinha/$handle': typeof LojinhaHandleRoute
   '/projetos/$slug': typeof ProjetosSlugRoute
   '/blog/': typeof BlogIndexRoute
-  '/lojonha/': typeof LojonhaIndexRoute
+  '/lojinha/': typeof LojinhaIndexRoute
   '/projetos/': typeof ProjetosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/lojonha': typeof LojonhaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/lojonha/$handle': typeof LojonhaHandleRoute
+  '/lojinha/$handle': typeof LojinhaHandleRoute
   '/projetos/$slug': typeof ProjetosSlugRoute
   '/blog': typeof BlogIndexRoute
-  '/lojonha': typeof LojonhaIndexRoute
+  '/lojinha': typeof LojinhaIndexRoute
   '/projetos': typeof ProjetosIndexRoute
 }
 export interface FileRoutesById {
@@ -129,16 +137,17 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
-  '/lojonha': typeof LojonhaRouteWithChildren
+  '/lojinha': typeof LojinhaRouteWithChildren
+  '/lojonha': typeof LojonhaRoute
   '/projetos': typeof ProjetosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/lojonha/$handle': typeof LojonhaHandleRoute
+  '/lojinha/$handle': typeof LojinhaHandleRoute
   '/projetos/$slug': typeof ProjetosSlugRoute
   '/blog/': typeof BlogIndexRoute
-  '/lojonha/': typeof LojonhaIndexRoute
+  '/lojinha/': typeof LojinhaIndexRoute
   '/projetos/': typeof ProjetosIndexRoute
 }
 export interface FileRouteTypes {
@@ -147,45 +156,48 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/contato'
+    | '/lojinha'
     | '/lojonha'
     | '/projetos'
     | '/sitemap.xml'
     | '/sobre'
     | '/trabalhos'
     | '/blog/$slug'
-    | '/lojonha/$handle'
+    | '/lojinha/$handle'
     | '/projetos/$slug'
     | '/blog/'
-    | '/lojonha/'
+    | '/lojinha/'
     | '/projetos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contato'
+    | '/lojonha'
     | '/sitemap.xml'
     | '/sobre'
     | '/trabalhos'
     | '/blog/$slug'
-    | '/lojonha/$handle'
+    | '/lojinha/$handle'
     | '/projetos/$slug'
     | '/blog'
-    | '/lojonha'
+    | '/lojinha'
     | '/projetos'
   id:
     | '__root__'
     | '/'
     | '/blog'
     | '/contato'
+    | '/lojinha'
     | '/lojonha'
     | '/projetos'
     | '/sitemap.xml'
     | '/sobre'
     | '/trabalhos'
     | '/blog/$slug'
-    | '/lojonha/$handle'
+    | '/lojinha/$handle'
     | '/projetos/$slug'
     | '/blog/'
-    | '/lojonha/'
+    | '/lojinha/'
     | '/projetos/'
   fileRoutesById: FileRoutesById
 }
@@ -193,7 +205,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
-  LojonhaRoute: typeof LojonhaRouteWithChildren
+  LojinhaRoute: typeof LojinhaRouteWithChildren
+  LojonhaRoute: typeof LojonhaRoute
   ProjetosRoute: typeof ProjetosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
@@ -221,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojinha': {
+      id: '/lojinha'
+      path: '/lojinha'
+      fullPath: '/lojinha'
+      preLoaderRoute: typeof LojinhaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lojonha': {
@@ -272,19 +292,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
-    '/lojonha/': {
-      id: '/lojonha/'
+    '/lojinha/': {
+      id: '/lojinha/'
       path: '/'
-      fullPath: '/lojonha/'
-      preLoaderRoute: typeof LojonhaIndexRouteImport
-      parentRoute: typeof LojonhaRoute
+      fullPath: '/lojinha/'
+      preLoaderRoute: typeof LojinhaIndexRouteImport
+      parentRoute: typeof LojinhaRoute
     }
-    '/lojonha/$handle': {
-      id: '/lojonha/$handle'
+    '/lojinha/$handle': {
+      id: '/lojinha/$handle'
       path: '/$handle'
-      fullPath: '/lojonha/$handle'
-      preLoaderRoute: typeof LojonhaHandleRouteImport
-      parentRoute: typeof LojonhaRoute
+      fullPath: '/lojinha/$handle'
+      preLoaderRoute: typeof LojinhaHandleRouteImport
+      parentRoute: typeof LojinhaRoute
     }
     '/projetos/': {
       id: '/projetos/'
@@ -315,18 +335,18 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
-interface LojonhaRouteChildren {
-  LojonhaHandleRoute: typeof LojonhaHandleRoute
-  LojonhaIndexRoute: typeof LojonhaIndexRoute
+interface LojinhaRouteChildren {
+  LojinhaHandleRoute: typeof LojinhaHandleRoute
+  LojinhaIndexRoute: typeof LojinhaIndexRoute
 }
 
-const LojonhaRouteChildren: LojonhaRouteChildren = {
-  LojonhaHandleRoute: LojonhaHandleRoute,
-  LojonhaIndexRoute: LojonhaIndexRoute,
+const LojinhaRouteChildren: LojinhaRouteChildren = {
+  LojinhaHandleRoute: LojinhaHandleRoute,
+  LojinhaIndexRoute: LojinhaIndexRoute,
 }
 
-const LojonhaRouteWithChildren =
-  LojonhaRoute._addFileChildren(LojonhaRouteChildren)
+const LojinhaRouteWithChildren =
+  LojinhaRoute._addFileChildren(LojinhaRouteChildren)
 
 interface ProjetosRouteChildren {
   ProjetosSlugRoute: typeof ProjetosSlugRoute
@@ -346,7 +366,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
-  LojonhaRoute: LojonhaRouteWithChildren,
+  LojinhaRoute: LojinhaRouteWithChildren,
+  LojonhaRoute: LojonhaRoute,
   ProjetosRoute: ProjetosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,

@@ -9,18 +9,18 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { fetchProductByHandle, formatPrice } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 
-export const Route = createFileRoute("/lojonha/$handle")({
+export const Route = createFileRoute("/lojinha/$handle")({
   head: ({ params }) => ({
     meta: [
-      { title: `${params.handle.replace(/-/g, " ")} — Lojonha | Atelier` },
-      { name: "description", content: "Peça artesanal da Lojonha: cadernos, prints e papelaria feitos à mão." },
-      { property: "og:title", content: `${params.handle.replace(/-/g, " ")} — Lojonha` },
-      { property: "og:description", content: "Peça artesanal da Lojonha: cadernos, prints e papelaria feitos à mão." },
+      { title: `${params.handle.replace(/-/g, " ")} — Lojinha | Atelier` },
+      { name: "description", content: "Peça artesanal da Lojinha: cadernos, prints e papelaria feitos à mão." },
+      { property: "og:title", content: `${params.handle.replace(/-/g, " ")} — Lojinha` },
+      { property: "og:description", content: "Peça artesanal da Lojinha: cadernos, prints e papelaria feitos à mão." },
       { property: "og:type", content: "product" },
-      { property: "og:url", content: `https://leartelier.lovable.app/lojonha/${params.handle}` },
+      { property: "og:url", content: `https://leartelier.lovable.app/lojinha/${params.handle}` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: `https://leartelier.lovable.app/lojonha/${params.handle}` }],
+    links: [{ rel: "canonical", href: `https://leartelier.lovable.app/lojinha/${params.handle}` }],
   }),
   component: ProductPage,
 });
@@ -48,7 +48,7 @@ function ProductPage() {
     <div className="min-h-screen">
       <SiteHeader />
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
-        <Link to="/lojonha" className="eyebrow border-b border-ink pb-1">← Lojonha</Link>
+        <Link to="/lojinha" className="eyebrow border-b border-ink pb-1">← Lojinha</Link>
         <CartDrawer />
       </div>
       {isLoading ? (
