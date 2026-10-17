@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as LojinhaRouteImport } from './routes/lojinha'
+import { Route as LojonhaRouteImport } from './routes/lojonha'
 import { Route as ProjetosRouteImport } from './routes/projetos'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SobreRouteImport } from './routes/sobre'
@@ -42,6 +43,11 @@ const ContatoRoute = ContatoRouteImport.update({
 const LojinhaRoute = LojinhaRouteImport.update({
   id: '/lojinha',
   path: '/lojinha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojonhaRoute = LojonhaRouteImport.update({
+  id: '/lojonha',
+  path: '/lojonha',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjetosRoute = ProjetosRouteImport.update({
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/lojinha': typeof LojinhaRouteWithChildren
+  '/lojonha': typeof LojonhaRoute
   '/projetos': typeof ProjetosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/lojonha': typeof LojonhaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/trabalhos': typeof TrabalhosRoute
@@ -130,6 +138,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/lojinha': typeof LojinhaRouteWithChildren
+  '/lojonha': typeof LojonhaRoute
   '/projetos': typeof ProjetosRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contato'
     | '/lojinha'
+    | '/lojonha'
     | '/projetos'
     | '/sitemap.xml'
     | '/sobre'
@@ -162,6 +172,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/lojonha'
     | '/sitemap.xml'
     | '/sobre'
     | '/trabalhos'
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contato'
     | '/lojinha'
+    | '/lojonha'
     | '/projetos'
     | '/sitemap.xml'
     | '/sobre'
@@ -194,6 +206,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   LojinhaRoute: typeof LojinhaRouteWithChildren
+  LojonhaRoute: typeof LojonhaRoute
   ProjetosRoute: typeof ProjetosRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
@@ -228,6 +241,13 @@ declare module '@tanstack/react-router' {
       path: '/lojinha'
       fullPath: '/lojinha'
       preLoaderRoute: typeof LojinhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojonha': {
+      id: '/lojonha'
+      path: '/lojonha'
+      fullPath: '/lojonha'
+      preLoaderRoute: typeof LojonhaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projetos': {
@@ -347,6 +367,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   LojinhaRoute: LojinhaRouteWithChildren,
+  LojonhaRoute: LojonhaRoute,
   ProjetosRoute: ProjetosRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
