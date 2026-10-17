@@ -6,7 +6,7 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/shopify";
 
-export const Route = createFileRoute("/lojonha/")({
+export const Route = createFileRoute("/lojinha/")({
   head: () => ({
     meta: [
       { title: "Lojonha — Cadernos, Prints & Papelaria Artesanal | Atelier" },

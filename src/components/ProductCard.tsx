@@ -26,7 +26,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
 
   return (
     <article className="group flex flex-col">
-      <Link to="/lojonha/$handle" params={{ handle: p.handle }} className="block overflow-hidden border border-border bg-secondary">
+      <Link to="/lojinha/$handle" params={{ handle: p.handle }} className="block overflow-hidden border border-border bg-secondary">
         {img ? (
           <img src={img.url} alt={img.altText ?? p.title} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
         ) : (
@@ -34,7 +34,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
         )}
       </Link>
       <div className="mt-4 flex items-baseline justify-between gap-4">
-        <Link to="/lojonha/$handle" params={{ handle: p.handle }} className="min-w-0 truncate text-lg hover:underline underline-offset-4">
+        <Link to="/lojinha/$handle" params={{ handle: p.handle }} className="min-w-0 truncate text-lg hover:underline underline-offset-4">
           {p.title}
         </Link>
         <span className="shrink-0 text-sm">{formatPrice(p.priceRange.minVariantPrice.amount, p.priceRange.minVariantPrice.currencyCode)}</span>

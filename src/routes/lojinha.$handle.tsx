@@ -9,7 +9,7 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { fetchProductByHandle, formatPrice } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 
-export const Route = createFileRoute("/lojonha/$handle")({
+export const Route = createFileRoute("/lojinha/$handle")({
   head: ({ params }) => ({
     meta: [
       { title: `${params.handle.replace(/-/g, " ")} — Lojonha | Atelier` },
@@ -48,7 +48,7 @@ function ProductPage() {
     <div className="min-h-screen">
       <SiteHeader />
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
-        <Link to="/lojonha" className="eyebrow border-b border-ink pb-1">← Lojonha</Link>
+        <Link to="/lojinha" className="eyebrow border-b border-ink pb-1">← Lojinha</Link>
         <CartDrawer />
       </div>
       {isLoading ? (
