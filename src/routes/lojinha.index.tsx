@@ -22,6 +22,24 @@ export const Route = createFileRoute("/lojinha/")({
   component: Lojinha,
 });
 
+function PlaceholderSlot({ index }: { index: number }) {
+  return (
+    <article className="flex flex-col">
+      <div className="paper-grain flex aspect-[4/5] w-full flex-col items-center justify-center border border-dashed border-border bg-secondary">
+        <span className="text-display text-5xl text-ink-soft/40">{String(index + 1).padStart(2, "0")}</span>
+        <span className="eyebrow mt-3 text-muted-foreground">Em breve</span>
+      </div>
+      <div className="mt-4 flex items-baseline justify-between gap-4">
+        <span className="truncate text-lg text-ink-soft">Reservado para produto</span>
+        <span className="shrink-0 text-sm text-muted-foreground">—</span>
+      </div>
+      <div className="eyebrow mt-4 inline-flex items-center justify-center border border-dashed border-border px-4 py-3 text-muted-foreground">
+        Aguardando produto
+      </div>
+    </article>
+  );
+}
+
 function Lojinha() {
   const { data: products, isLoading, error } = useQuery({ queryKey: ["shopify-products"], queryFn: () => fetchProducts(50) });
 
