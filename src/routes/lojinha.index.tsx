@@ -51,21 +51,19 @@ function Lojinha() {
 
           {isLoading ? (
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: 3 }).map((_, i) => (
+              {Array.from({ length: 9 }).map((_, i) => (
                 <div key={i} className="aspect-[4/5] animate-pulse bg-secondary" />
               ))}
             </div>
           ) : error ? (
             <p className="mt-10 text-muted-foreground">Não foi possível carregar os produtos agora.</p>
-          ) : !products || products.length === 0 ? (
-            <div className="mt-10 border border-dashed border-border px-6 py-20 text-center">
-              <p className="text-display text-3xl">Nenhum produto encontrado</p>
-              <p className="mt-3 text-sm text-muted-foreground">Os primeiros cadernos e prints chegam em breve.</p>
-            </div>
           ) : (
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((p) => (
+              {(products ?? []).slice(0, 9).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
+              ))}
+              {Array.from({ length: Math.max(0, 9 - Math.min(9, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i} />
               ))}
             </div>
           )}
