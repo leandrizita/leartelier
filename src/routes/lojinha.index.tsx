@@ -22,6 +22,24 @@ export const Route = createFileRoute("/lojinha/")({
   component: Lojinha,
 });
 
+function PlaceholderSlot({ index }: { index: number }) {
+  return (
+    <article className="flex flex-col">
+      <div className="paper-grain flex aspect-[4/5] w-full flex-col items-center justify-center border border-dashed border-border bg-secondary">
+        <span className="text-display text-5xl text-ink-soft/40">{String(index + 1).padStart(2, "0")}</span>
+        <span className="eyebrow mt-3 text-muted-foreground">Em breve</span>
+      </div>
+      <div className="mt-4 flex items-baseline justify-between gap-4">
+        <span className="truncate text-lg text-ink-soft">Reservado para produto</span>
+        <span className="shrink-0 text-sm text-muted-foreground">—</span>
+      </div>
+      <div className="eyebrow mt-4 inline-flex items-center justify-center border border-dashed border-border px-4 py-3 text-muted-foreground">
+        Aguardando produto
+      </div>
+    </article>
+  );
+}
+
 function Lojinha() {
   const { data: products, isLoading, error } = useQuery({ queryKey: ["shopify-products"], queryFn: () => fetchProducts(50) });
 
@@ -51,21 +69,19 @@ function Lojinha() {
 
           {isLoading ? (
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: 3 }).map((_, i) => (
+              {Array.from({ length: 9 }).map((_, i) => (
                 <div key={i} className="aspect-[4/5] animate-pulse bg-secondary" />
               ))}
             </div>
           ) : error ? (
             <p className="mt-10 text-muted-foreground">Não foi possível carregar os produtos agora.</p>
-          ) : !products || products.length === 0 ? (
-            <div className="mt-10 border border-dashed border-border px-6 py-20 text-center">
-              <p className="text-display text-3xl">Nenhum produto encontrado</p>
-              <p className="mt-3 text-sm text-muted-foreground">Os primeiros cadernos e prints chegam em breve.</p>
-            </div>
           ) : (
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((p) => (
+              {(products ?? []).slice(0, 9).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
+              ))}
+              {Array.from({ length: Math.max(0, 9 - Math.min(9, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i} />
               ))}
             </div>
           )}
