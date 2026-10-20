@@ -29,7 +29,7 @@ function PrintSlot01() {
       <div className="relative overflow-hidden border border-border bg-secondary">
         <img
           src={printSlot01.url}
-          alt="Print aquarela — multidão com bandeiras diante da cúpula iluminada do Museu Nacional da República, em Brasília, ao entardecer"
+          alt="Print emoldurado em madeira clara, com passe-partout off-white, pendurado na parede de um escritório com mesa de madeira, notebook, caneca e plantas"
           className="aspect-[4/5] w-full object-cover"
         />
         <span className="eyebrow absolute left-3 top-3 border border-ink/20 bg-paper/80 px-2 py-1 text-ink backdrop-blur-sm">01</span>
