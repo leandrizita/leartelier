@@ -100,11 +100,12 @@ function Lojinha() {
             <p className="mt-10 text-muted-foreground">Não foi possível carregar os produtos agora.</p>
           ) : (
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              {(products ?? []).slice(0, 9).map((p) => (
+              <PrintSlot01 />
+              {(products ?? []).slice(0, 8).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
               ))}
-              {Array.from({ length: Math.max(0, 9 - Math.min(9, (products ?? []).length)) }).map((_, i) => (
-                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i} />
+              {Array.from({ length: Math.max(0, 8 - Math.min(8, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 1} />
               ))}
             </div>
           )}
