@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/shopify";
+import printSlot01 from "@/assets/lojinha-print-01.png.asset.json";
 
 export const Route = createFileRoute("/lojinha/")({
   head: () => ({
@@ -21,6 +22,28 @@ export const Route = createFileRoute("/lojinha/")({
   }),
   component: Lojinha,
 });
+
+function PrintSlot01() {
+  return (
+    <article className="flex flex-col">
+      <div className="relative overflow-hidden border border-border bg-secondary">
+        <img
+          src={printSlot01.url}
+          alt="Print aquarela — multidão com bandeiras diante da cúpula iluminada do Museu Nacional da República, em Brasília, ao entardecer"
+          className="aspect-[4/5] w-full object-cover"
+        />
+        <span className="eyebrow absolute left-3 top-3 border border-ink/20 bg-paper/80 px-2 py-1 text-ink backdrop-blur-sm">01</span>
+      </div>
+      <div className="mt-4 flex items-baseline justify-between gap-4">
+        <span className="truncate text-lg">Brasília, Entardecer — ATO 13OUT26</span>
+        <span className="shrink-0 text-sm text-muted-foreground">—</span>
+      </div>
+      <div className="eyebrow mt-4 inline-flex items-center justify-center border border-dashed border-border px-4 py-3 text-muted-foreground">
+        Em breve
+      </div>
+    </article>
+  );
+}
 
 function PlaceholderSlot({ index }: { index: number }) {
   return (
@@ -77,11 +100,12 @@ function Lojinha() {
             <p className="mt-10 text-muted-foreground">Não foi possível carregar os produtos agora.</p>
           ) : (
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              {(products ?? []).slice(0, 9).map((p) => (
+              <PrintSlot01 />
+              {(products ?? []).slice(0, 8).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
               ))}
-              {Array.from({ length: Math.max(0, 9 - Math.min(9, (products ?? []).length)) }).map((_, i) => (
-                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i} />
+              {Array.from({ length: Math.max(0, 8 - Math.min(8, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 1} />
               ))}
             </div>
           )}
