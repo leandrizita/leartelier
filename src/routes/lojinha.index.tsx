@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/shopify";
 import printSlot01 from "@/assets/lojinha-print-01.png.asset.json";
 import printSlot02 from "@/assets/lojinha-print-02.png.asset.json";
+import printSlot03 from "@/assets/lojinha-print-03.png.asset.json";
 
 export const Route = createFileRoute("/lojinha/")({
   head: () => ({
@@ -124,11 +125,17 @@ function Lojinha() {
                 alt="Pintura de uma figura humana em pinceladas espessas de tons terrosos, ocre e rosa, com passe-partout branco e moldura preta fina, pendurada em uma parede clara"
                 title="Sem título"
               />
-              {(products ?? []).slice(0, 7).map((p) => (
+              <FeaturedSlot
+                index="03"
+                src={printSlot03.url}
+                alt="Print emoldurado em madeira clara com passe-partout off-white: menino de camisa creme e bermuda terracota segurando um balão vermelho, sobre fundo bege com faixas em vermelho e círculo ocre"
+                title="Sem título"
+              />
+              {(products ?? []).slice(0, 6).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
               ))}
-              {Array.from({ length: Math.max(0, 7 - Math.min(7, (products ?? []).length)) }).map((_, i) => (
-                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 2} />
+              {Array.from({ length: Math.max(0, 6 - Math.min(6, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 3} />
               ))}
             </div>
           )}
