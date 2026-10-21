@@ -6,6 +6,7 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { ProductCard } from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/shopify";
 import printSlot01 from "@/assets/lojinha-print-01.png.asset.json";
+import printSlot02 from "@/assets/lojinha-print-02.png.asset.json";
 
 export const Route = createFileRoute("/lojinha/")({
   head: () => ({
@@ -23,19 +24,30 @@ export const Route = createFileRoute("/lojinha/")({
   component: Lojinha,
 });
 
-function PrintSlot01() {
+function FeaturedSlot({
+  index,
+  src,
+  alt,
+  title,
+}: {
+  index: string;
+  src: string;
+  alt: string;
+  title: string;
+}) {
   return (
     <article className="flex flex-col">
       <div className="relative overflow-hidden border border-border bg-secondary">
         <img
-          src={printSlot01.url}
-          alt="Print emoldurado em madeira clara, com passe-partout off-white, pendurado na parede de um escritório com mesa de madeira, notebook, caneca e plantas"
+          src={src}
+          alt={alt}
+          loading="lazy"
           className="aspect-[4/5] w-full object-cover"
         />
-        <span className="eyebrow absolute left-3 top-3 border border-ink/20 bg-paper/80 px-2 py-1 text-ink backdrop-blur-sm">01</span>
+        <span className="eyebrow absolute left-3 top-3 border border-ink/20 bg-paper/80 px-2 py-1 text-ink backdrop-blur-sm">{index}</span>
       </div>
       <div className="mt-4 flex items-baseline justify-between gap-4">
-        <span className="truncate text-lg">Brasília, Entardecer — ATO 13OUT26</span>
+        <span className="truncate text-lg">{title}</span>
         <span className="shrink-0 text-sm text-muted-foreground">—</span>
       </div>
       <div className="eyebrow mt-4 inline-flex items-center justify-center border border-dashed border-border px-4 py-3 text-muted-foreground">
@@ -100,12 +112,23 @@ function Lojinha() {
             <p className="mt-10 text-muted-foreground">Não foi possível carregar os produtos agora.</p>
           ) : (
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              <PrintSlot01 />
-              {(products ?? []).slice(0, 8).map((p) => (
+              <FeaturedSlot
+                index="01"
+                src={printSlot01.url}
+                alt="Print emoldurado em madeira clara, com passe-partout off-white, pendurado na parede de um escritório com mesa de madeira, notebook, caneca e plantas"
+                title="Brasília, Entardecer — ATO 13OUT26"
+              />
+              <FeaturedSlot
+                index="02"
+                src={printSlot02.url}
+                alt="Pintura de uma figura humana em pinceladas espessas de tons terrosos, ocre e rosa, com passe-partout branco e moldura preta fina, pendurada em uma parede clara"
+                title="Sem título"
+              />
+              {(products ?? []).slice(0, 7).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
               ))}
-              {Array.from({ length: Math.max(0, 8 - Math.min(8, (products ?? []).length)) }).map((_, i) => (
-                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 1} />
+              {Array.from({ length: Math.max(0, 7 - Math.min(7, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 2} />
               ))}
             </div>
           )}
