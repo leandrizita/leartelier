@@ -123,13 +123,13 @@ function Lojinha() {
                 index="02"
                 src={printSlot02.url}
                 alt="Pintura de uma figura humana em pinceladas espessas de tons terrosos, ocre e rosa, com passe-partout branco e moldura preta fina, pendurada em uma parede clara"
-                title="Sem título"
+                title="Woman "
               />
               <FeaturedSlot
                 index="03"
                 src={printSlot03.url}
                 alt="Print emoldurado em madeira clara com passe-partout off-white: menino de camisa creme e bermuda terracota segurando um balão vermelho, sobre fundo bege com faixas em vermelho e círculo ocre"
-                title="Sem título"
+                title="Sorria!"
               />
               {(products ?? []).slice(0, 6).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
