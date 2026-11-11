@@ -46,7 +46,7 @@ function FeaturedSlot({
           src={src}
           alt={alt}
           loading="lazy"
-          className={`aspect-[4/5] w-full object-${fit}`}
+          className={`aspect-[4/5] w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         />
         <span className="eyebrow absolute left-3 top-3 border border-ink/20 bg-paper/80 px-2 py-1 text-ink backdrop-blur-sm">{index}</span>
       </div>
