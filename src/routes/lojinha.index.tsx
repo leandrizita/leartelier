@@ -8,6 +8,7 @@ import { fetchProducts } from "@/lib/shopify";
 import printSlot01 from "@/assets/lojinha-print-01.png.asset.json";
 import printSlot02 from "@/assets/lojinha-print-02.png.asset.json";
 import printSlot03 from "@/assets/lojinha-print-03.png.asset.json";
+import printSlot04 from "@/assets/lojinha-print-04.png.asset.json";
 
 export const Route = createFileRoute("/lojinha/")({
   head: () => ({
@@ -30,11 +31,13 @@ function FeaturedSlot({
   src,
   alt,
   title,
+  fit = "cover",
 }: {
   index: string;
   src: string;
   alt: string;
   title: string;
+  fit?: "cover" | "contain";
 }) {
   return (
     <article className="flex flex-col">
@@ -43,7 +46,7 @@ function FeaturedSlot({
           src={src}
           alt={alt}
           loading="lazy"
-          className="aspect-[4/5] w-full object-cover"
+          className={`aspect-[4/5] w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         />
         <span className="eyebrow absolute left-3 top-3 border border-ink/20 bg-paper/80 px-2 py-1 text-ink backdrop-blur-sm">{index}</span>
       </div>
@@ -131,11 +134,18 @@ function Lojinha() {
                 alt="Print emoldurado em madeira clara com passe-partout off-white: menino de camisa creme e bermuda terracota segurando um balão vermelho, sobre fundo bege com faixas em vermelho e círculo ocre"
                 title="Sorria!"
               />
-              {(products ?? []).slice(0, 6).map((p) => (
+              <FeaturedSlot
+                index="04"
+                src={printSlot04.url}
+                alt="Aquarela e nanquim de um carro de Fórmula 1 vermelho da Ferrari contornando uma curva de autódromo, com zebras vermelho e branco, área de escape gramada e alambrado ao fundo"
+                title="Sem título"
+                fit="contain"
+              />
+              {(products ?? []).slice(0, 5).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
               ))}
-              {Array.from({ length: Math.max(0, 6 - Math.min(6, (products ?? []).length)) }).map((_, i) => (
-                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 3} />
+              {Array.from({ length: Math.max(0, 5 - Math.min(5, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 4} />
               ))}
             </div>
           )}
