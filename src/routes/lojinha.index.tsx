@@ -138,7 +138,7 @@ function Lojinha() {
                 index="04"
                 src={printSlot04.url}
                 alt="Quadro emoldurado em madeira com passe-partout off-white mostrando uma aquarela de carro de Fórmula 1 vermelho contornando uma curva, apoiado sobre um móvel de madeira com livros, uma miniatura de carro de corrida, um capacete e um ramo de planta ao lado"
-                title="Sem título"
+                title="Michael Sch"
                 fit="contain"
               />
               {(products ?? []).slice(0, 5).map((p) => (
