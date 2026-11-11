@@ -8,7 +8,7 @@ import { fetchProducts } from "@/lib/shopify";
 import printSlot01 from "@/assets/lojinha-print-01.png.asset.json";
 import printSlot02 from "@/assets/lojinha-print-02.png.asset.json";
 import printSlot03 from "@/assets/lojinha-print-03.png.asset.json";
-import printSlot04 from "@/assets/lojinha-print-04.png.asset.json";
+import printSlot04 from "@/assets/lojinha-print-04-f1.png.asset.json";
 
 export const Route = createFileRoute("/lojinha/")({
   head: () => ({
@@ -137,7 +137,7 @@ function Lojinha() {
               <FeaturedSlot
                 index="04"
                 src={printSlot04.url}
-                alt="Aquarela e nanquim de um carro de Fórmula 1 vermelho da Ferrari contornando uma curva de autódromo, com zebras vermelho e branco, área de escape gramada e alambrado ao fundo"
+                alt="Quadro emoldurado em madeira com passe-partout off-white mostrando uma aquarela de carro de Fórmula 1 vermelho contornando uma curva, apoiado sobre um móvel de madeira com livros, uma miniatura de carro de corrida, um capacete e um ramo de planta ao lado"
                 title="Sem título"
                 fit="contain"
               />
