@@ -9,6 +9,7 @@ import printSlot01 from "@/assets/lojinha-print-01.png.asset.json";
 import printSlot02 from "@/assets/lojinha-print-02.png.asset.json";
 import printSlot03 from "@/assets/lojinha-print-03.png.asset.json";
 import printSlot04 from "@/assets/lojinha-print-04-f1.png.asset.json";
+import printSlot05 from "@/assets/lojinha-print-05.png.asset.json";
 
 export const Route = createFileRoute("/lojinha/")({
   head: () => ({
@@ -141,11 +142,17 @@ function Lojinha() {
                 title="Michael Schumacher - Áustria, 2006"
                 fit="contain"
               />
-              {(products ?? []).slice(0, 5).map((p) => (
+              <FeaturedSlot
+                index="05"
+                src={printSlot05.url}
+                alt="Print emoldurado em madeira clara com passe-partout branco, apoiado no piso de madeira junto a um sofá cinza: pintura de uma figura feminina ajoelhada em perfil, em tons de terracota e coral sobre fundo azul-petróleo"
+                title="Under your skin"
+              />
+              {(products ?? []).slice(0, 4).map((p) => (
                 <ProductCard key={p.node.id} product={p} />
               ))}
-              {Array.from({ length: Math.max(0, 5 - Math.min(5, (products ?? []).length)) }).map((_, i) => (
-                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 4} />
+              {Array.from({ length: Math.max(0, 4 - Math.min(4, (products ?? []).length)) }).map((_, i) => (
+                <PlaceholderSlot key={`slot-${i}`} index={(products ?? []).length + i + 5} />
               ))}
             </div>
           )}
